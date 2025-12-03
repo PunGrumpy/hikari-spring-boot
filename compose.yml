@@ -13,3 +13,17 @@ services:
       - './src/main/resources/db/migration/V1__001_Init-Schema.sql:/docker-entrypoint-initdb.d/V1__001_Init-Schema.sql'
     command:
       - '--max-connections=1000'
+
+  hikari-spring-boot:
+    container_name: hikari-spring-boot
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '3000:3000'
+    depends_on:
+      - mariadb
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mariadb://mariadb:3306/hikari
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=root

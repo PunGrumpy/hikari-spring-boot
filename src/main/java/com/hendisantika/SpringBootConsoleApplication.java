@@ -1,12 +1,12 @@
 package com.hendisantika;
 
+import com.zaxxer.hikari.HikariDataSource;
 import com.hendisantika.dao.CustomerRepository;
 import com.hendisantika.model.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
 import javax.sql.DataSource;
 import java.util.List;
 
@@ -31,8 +31,9 @@ public class SpringBootConsoleApplication implements CommandLineRunner {
         System.out.println("DATASOURCE = " + dataSource);
 
         // If you want to check the HikariDataSource settings
-        //HikariDataSource newds = (HikariDataSource)dataSource;
-        //System.out.println("DATASOURCE = " + newds.getMaximumPoolSize());
+        HikariDataSource ds = (HikariDataSource) dataSource;
+        System.out.println("URL = " + ds.getJdbcUrl());
+        System.out.println("MaxPoolSize = " + ds.getMaximumPoolSize());
 
         if (args.length <= 0) {
             System.err.println("[Usage] java xxx.jar {insert name email | display}");

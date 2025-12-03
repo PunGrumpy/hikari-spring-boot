@@ -54,6 +54,12 @@
             <artifactId>flyway-core</artifactId>
             <version>11.18.0</version>
         </dependency>
+
+        <!-- Spring Boot Actuator -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
     </dependencies>
 
     <build>

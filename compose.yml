@@ -10,6 +10,6 @@ services:
     ports:
       - '3306:3306'
     volumes:
-      - './hikari.sql:/docker-entrypoint-initdb.d/1.sql'
+      - './src/main/resources/db/migration/V1__001_Init-Schema.sql:/docker-entrypoint-initdb.d/V1__001_Init-Schema.sql'
     command:
       - '--max-connections=1000'

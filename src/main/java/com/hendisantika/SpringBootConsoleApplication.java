@@ -10,8 +10,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import javax.sql.DataSource;
 import java.util.List;
 
-import static java.lang.System.exit;
-
 @SpringBootApplication
 public class SpringBootConsoleApplication implements CommandLineRunner {
 
@@ -52,6 +50,5 @@ public class SpringBootConsoleApplication implements CommandLineRunner {
             }
             System.out.println("Done!");
         }
-        exit(0);
     }
 }

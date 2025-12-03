@@ -1,0 +1,15 @@
+services:
+  mariadb:
+    container_name: hikari-mariadb
+    image: mariadb
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: user
+      MYSQL_PASSWORD: root
+      MYSQL_DATABASE: hikari
+    ports:
+      - '3306:3306'
+    volumes:
+      - './hikari.sql:/docker-entrypoint-initdb.d/1.sql'
+    command:
+      - '--max-connections=1000'
